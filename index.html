@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="RockHopping Auto provides reliable auto repair, diagnostics, brake service, 4x4 prep, and scheduled maintenance in Colorado Springs, CO."
+  />
+  <meta name="theme-color" content="#1e2229" />
+  <title>RockHopping Auto | Auto Repair Colorado Springs</title>
+  <style>
+    /* Reset and base styles */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      background: #1e2229;
+      color: #f8f9fa;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    :root {
+      --bg: #1e2229;
+      --bg-deep: #15181d;
+      --panel: #252b34;
+      --panel-light: #f8f9fa;
+      --text: #f8f9fa;
+      --text-muted: #c5ccd6;
+      --text-dark: #1e2229;
+      --accent: #ff6b00;
+      --accent-dark: #d95b00;
+      --line: rgba(248, 249, 250, 0.14);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    .btn {
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      font-weight: 800;
+      gap: 0.5rem;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.85rem 1.2rem;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      box-shadow: 0 12px 28px rgba(255, 107, 0, 0.28);
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent-dark);
+      box-shadow: 0 16px 34px rgba(255, 107, 0, 0.36);
+    }
+
+    .btn-secondary {
+      border-color: rgba(248, 249, 250, 0.38);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(248, 249, 250, 0.1);
+      border-color: var(--accent);
+    }
+
+    /* Header and navigation */
+    .site-header {
+      backdrop-filter: blur(16px);
+      background: rgba(30, 34, 41, 0.92);
+      border-bottom: 1px solid var(--line);
+      left: 0;
+      position: sticky;
+      right: 0;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      min-height: 78px;
+    }
+
+    .brand {
+      align-items: center;
+      display: inline-flex;
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand::before {
+      background: linear-gradient(135deg, var(--accent), #ff9a3d);
+      border-radius: 10px;
+      content: "";
+      display: inline-block;
+      height: 34px;
+      margin-right: 0.75rem;
+      width: 34px;
+    }
+
+    .nav-call {
+      min-height: 46px;
+      padding: 0.72rem 0.95rem;
+    }
+
+    /* Hero */
+    .hero {
+      overflow: hidden;
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+
+    .hero::before {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 0, 0.28), transparent 32%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%);
+      content: "";
+      inset: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      align-items: center;
+      display: grid;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 12vw, 5.8rem);
+      letter-spacing: -0.07em;
+      line-height: 0.95;
+      max-width: 900px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+      margin-top: 1.25rem;
+      max-width: 640px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(37, 43, 52, 0.96), rgba(21, 24, 29, 0.96));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
+    }
+
+    .hero-card strong {
+      color: var(--accent);
+      display: block;
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .hero-card span {
+      color: var(--text-muted);
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-light {
+      background: var(--panel-light);
+      color: var(--text-dark);
+    }
+
+    .section-heading {
+      margin-bottom: 2rem;
+      max-width: 720px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      color: #5f6875;
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .service-card:hover,
+    .service-card:focus-within {
+      border-color: rgba(255, 107, 0, 0.48);
+      box-shadow: 0 16px 42px rgba(30, 34, 41, 0.12);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      align-items: center;
+      background: rgba(255, 107, 0, 0.1);
+      border-radius: 16px;
+      color: var(--accent);
+      display: inline-flex;
+      font-size: 1.55rem;
+      height: 52px;
+      justify-content: center;
+      margin-bottom: 1rem;
+      width: 52px;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.55rem;
+    }
+
+    .service-card p {
+      color: #5f6875;
+    }
+
+    /* Trust */
+    .trust-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .trust-copy p {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      margin-top: 1rem;
+    }
+
+    .rating {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .review-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+
+    .stars {
+      color: #ffbf2f;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .review-card blockquote {
+      color: var(--text);
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .review-card cite {
+      color: var(--text-muted);
+      display: block;
+      font-style: normal;
+      margin-top: 1rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .contact-form,
+    .location-card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 50px rgba(30, 34, 41, 0.08);
+      padding: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      color: #303844;
+      font-weight: 800;
+    }
+
+    input,
+    textarea {
+      background: #f4f6f8;
+      border: 1px solid #d7dde4;
+      border-radius: 14px;
+      color: var(--text-dark);
+      outline: none;
+      padding: 0.9rem 1rem;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      background: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.14);
+    }
+
+    .submit-btn {
+      border: 0;
+      width: 100%;
+    }
+
+    .location-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .address {
+      color: #5f6875;
+      margin-bottom: 1rem;
+    }
+
+    .map-frame {
+      background:
+        linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(30, 34, 41, 0.08)),
+        #e7ebf0;
+      border: 0;
+      border-radius: 16px;
+      height: 300px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .map-frame iframe {
+      border: 0;
+      height: 300px;
+      width: 100%;
+    }
+
+    .hours {
+      background: #f4f6f8;
+      border-radius: 16px;
+      color: #303844;
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      padding: 2rem 0;
+    }
+
+    .footer-content {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .footer-content a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 107, 0, 0.55);
+      text-underline-offset: 4px;
+    }
+
+    .footer-content a:hover,
+    .footer-content a:focus-visible {
+      color: var(--accent);
+    }
+
+    @media (max-width: 420px) {
+      .nav {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+      }
+
+      .nav-call {
+        width: 100%;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (min-width: 560px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 7rem 0 5.5rem;
+      }
+
+      .hero-grid,
+      .trust-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .contact-form,
+      .location-card {
+        padding: 1.5rem;
+      }
+
+      .footer-content {
+        align-items: center;
+        grid-template-columns: 1fr auto 1fr;
+      }
+
+      .footer-hours {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="RockHopping Auto home">RockHopping Auto</a>
+        <a class="btn btn-primary nav-call" href="tel:+1719XXXXXXX">Call Now: (719) XXX-XXXX</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Colorado Springs auto repair</p>
+          <h1 id="hero-title">Reliable Auto Repair &amp; Maintenance in Colorado Springs</h1>
+          <p>Quality service, honest pricing, and local expertise right near downtown.</p>
+          <div class="hero-actions" aria-label="Service scheduling options">
+            <a class="btn btn-primary" href="#contact">Schedule Service</a>
+            <a class="btn btn-secondary" href="tel:+1719XXXXXXX">Call the Shop</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Customer reputation highlight">
+          <strong>4.6★</strong>
+          <span>Local reputation for dependable repairs, clear communication, and Colorado-ready service.</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-light" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="services-title">Service built for daily drivers and mountain weekends.</h2>
+          <p>From routine maintenance to trail-ready prep, RockHopping Auto helps keep your vehicle safe, capable, and ready for Colorado roads.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">◎</div>
+            <h3>Brake &amp; Suspension Service</h3>
+            <p>Confident stopping power, smoother handling, and repair recommendations you can understand.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">⚙</div>
+            <h3>Diagnostics &amp; Tune-Ups</h3>
+            <p>Check engine lights, performance issues, and preventive tune-ups handled with care.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">◆</div>
+            <h3>Scheduled Maintenance &amp; Oil Changes</h3>
+            <p>Factory-recommended service to help extend vehicle life and avoid costly surprises.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">▰</div>
+            <h3>4x4 &amp; Off-Road Prep</h3>
+            <p>Practical inspections and upgrades for drivers who head from downtown to dirt roads.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="container trust-grid">
+        <div class="trust-copy">
+          <p class="eyebrow">Trusted local expertise</p>
+          <h2 id="about-title">Honest work for the Colorado Springs community.</h2>
+          <p>RockHopping Auto is focused on practical repairs, straightforward communication, and service that respects your time. With a <span class="rating">4.6-star reputation</span>, the shop is positioned as a reliable choice for drivers near downtown Colorado Springs.</p>
+        </div>
+        <article class="review-card" aria-label="Google review testimonial placeholder">
+          <div class="stars" aria-label="Five star review">★★★★★</div>
+          <blockquote>“Great communication, fair pricing, and the vehicle was ready when promised. Exactly what you want from a local repair shop.”</blockquote>
+          <cite>— Google Review Placeholder</cite>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-light" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="contact-title">Schedule service or ask a question.</h2>
+          <p>Tell the shop what you drive and what you need. A team member can follow up with next steps.</p>
+        </div>
+        <div class="contact-grid">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="vehicle">Vehicle Make/Model</label>
+                <input id="vehicle" name="vehicle" type="text" placeholder="e.g., Toyota 4Runner" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message / Service Needed</label>
+              <textarea id="message" name="message" placeholder="Describe the issue, maintenance needed, or preferred appointment window." required></textarea>
+            </div>
+            <button class="btn btn-primary submit-btn" type="submit">Request Appointment</button>
+          </form>
+
+          <aside class="location-card" aria-label="RockHopping Auto location and hours">
+            <h3>Visit the shop</h3>
+            <p class="address">304 S Nevada Ave<br />Colorado Springs, CO 80903</p>
+            <div class="map-frame" aria-label="Google Maps embed placeholder">
+              <iframe
+                title="Google Maps location placeholder for RockHopping Auto"
+                src="about:blank"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="hours">
+              <strong>Business Hours</strong><br />
+              Monday–Friday: 8:00 AM–5:30 PM<br />
+              Saturday: By appointment<br />
+              Sunday: Closed
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 RockHopping Auto. All rights reserved.</p>
+      <a href="#" aria-label="Privacy policy placeholder">Privacy Policy</a>
+      <p class="footer-hours">Mon–Fri: 8:00 AM–5:30 PM</p>
+    </div>
+  </footer>
+</body>
+</html>
